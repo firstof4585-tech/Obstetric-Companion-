@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="apple-touch-icon" href="/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Obstetrics Companion</title>
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#2563eb"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'print-only': 'transparent',
+            },
+            screens: {
+              'print': {'raw': 'print'},
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      @media print {
+        body {
+          padding: 0;
+          margin: 0;
+          background-color: white !important;
+        }
+        /* Hide UI chrome */
+        aside, header {
+          display: none !important;
+        }
+        /* Expand main content */
+        main {
+          padding: 1rem !important;
+          overflow-y: visible !important;
+          height: auto !important;
+        }
+        /* Reset card styles for print */
+        .print-card {
+          background-color: white !important;
+          box-shadow: none !important;
+          border: 1px solid #e2e8f0 !important;
+          break-inside: avoid; /* Prevents cards from breaking across pages */
+        }
+        .print-card-header {
+           border-bottom: 1px solid #e2e8f0 !important;
+        }
+        /* Reset text and background colors for dark mode */
+        .dark body, .dark main {
+            background-color: white !important;
+        }
+        .dark table th, .dark table td, .dark h1, .dark h2, .dark h3, .dark p, .dark label, .dark span, .dark li,
+        .dark .print-text-reset {
+            color: #1e293b !important;
+        }
+        .dark .bg-slate-50, .dark .bg-blue-50, .dark .bg-green-50, .dark .bg-slate-100, .dark .bg-slate-700 {
+            background-color: #f8fafc !important; /* A very light gray */
+        }
+        .dark .text-blue-300, .dark .text-blue-400, .dark .text-blue-800 { color: #2563eb !important; }
+        .dark .text-green-300, .dark .text-green-800 { color: #166534 !important; }
+        
+        /* Show the dynamically added header */
+        #print-patient-header {
+          display: block !important;
+        }
+
+        /* Table styling for print */
+        table {
+            font-size: 10pt;
+        }
+        th, td {
+            padding: 4px 8px;
+        }
+
+        /* Hide the print button itself */
+        .print-button-wrapper {
+          display: none !important;
+        }
+        
+        /* Ensure charts are visible */
+        .recharts-wrapper {
+            break-inside: avoid;
+        }
+      }
+      /* By default, hide the dynamic header */
+      #print-patient-header {
+        display: none;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "recharts": "https://aistudiocdn.com/recharts@^3.2.1",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/"
+  }
+}
+</script>
+</head>
+  <body class="bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-slate-200">
+    <div id="root"></div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+              console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            })
+            .catch(error => {
+              console.log('ServiceWorker registration failed: ', error);
+            });
+        });
+      }
+    </script>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,5 @@
+{
+  "name": "Obstetrics Companion",
+  "description": "An advanced web application for obstetric calculations, providing tools for gestational age and due date estimation (supporting Gregorian and Ethiopian calendars), pregnancy milestone tracking, WHO-based ANC visit scheduling, Modified Bishop Score assessment, and detailed fetal ultrasound biometry analysis with charts.",
+  "requestFramePermissions": []
+}

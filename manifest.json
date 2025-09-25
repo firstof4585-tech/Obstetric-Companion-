@@ -1,0 +1,17 @@
+{
+  "name": "Obstetrics Companion",
+  "short_name": "OB Companion",
+  "description": "An advanced web application for obstetric calculations, providing tools for gestational age and due date estimation (supporting Gregorian and Ethiopian calendars), pregnancy milestone tracking, WHO-based ANC visit scheduling, Modified Bishop Score assessment, and detailed fetal ultrasound biometry analysis with charts.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "48x48 72x72 96x96 128x128 144x144 192x192 256x256 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
